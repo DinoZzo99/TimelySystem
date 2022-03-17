@@ -29,7 +29,7 @@ export class AppComponent {
 
   public initProjectAdded() { // call this to update list
     this.timeLogService.getAll().subscribe(result => {
-      this.timeLogs = result;
+      this.timeLogs = result.reverse();
     }, error => console.log(error));
   }
   public writeTimes() { // tests
@@ -110,7 +110,7 @@ export class AppComponent {
         projectName: projectName,
         startDate: this.startTime.toISOString(),
         endDate: this.endTime.toISOString(),
-        duration: Math.round((this.timePassed/1000)*100)/100
+        duration: Math.round(this.timePassed/1000)
       }
     }
     console.log(this.newTimeLog);
