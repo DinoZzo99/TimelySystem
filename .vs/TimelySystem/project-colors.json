@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "00495f78-063d-4912-8808-fe1a0e4423dc": {
+      "ProjectGuid": "00495f78-063d-4912-8808-fe1a0e4423dc",
+      "DisplayName": "TimelyWebAPI",
+      "ColorIndex": 0
+    },
+    "0e57c081-0cc3-4be8-8ed9-330aa83d13ce": {
+      "ProjectGuid": "0e57c081-0cc3-4be8-8ed9-330aa83d13ce",
+      "DisplayName": "DomainModels",
+      "ColorIndex": 1
+    },
+    "4d3bee9f-61ae-46fc-9894-855da36e3f83": {
+      "ProjectGuid": "4d3bee9f-61ae-46fc-9894-855da36e3f83",
+      "DisplayName": "TimelyAngularServer",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

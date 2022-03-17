@@ -1,0 +1,36 @@
+<h1 id="tableLabel">Timely</h1>
+<button *ngIf="timeLogs" (click)="exportexcel()" class="btn btn-primary m-2">Get Excel</button>
+
+<p *ngIf="!timeLogs"><em>Loading...</em></p>
+
+<div *ngIf="timeLogs" class="text-center pb-5">
+  <button *ngIf="!startTime" (click)="StartTimer()" class="btn btn-success px-5">Start</button>
+  <app-timer-pop-up *ngIf="startTime" [EndTimer]="EndTimer"></app-timer-pop-up>
+</div>
+
+<div *ngIf="timeLogs" class="card border border-dark col-8 offset-2 p-0">
+  <table id="excel-table" class="table table-borderless text-center m-0">
+    <thead>
+      <tr class="table-secondary">
+        <th>Project Name</th>
+        <th class="border-left">Start Date</th>
+        <th class="border-left">End Date</th>
+        <th class="border-left">Duration</th>
+        <th class="border-left">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let timeLog of timeLogs | slice: (page-1)*5:page * 5" class="border-between">
+        <td>{{ timeLog.projectName ? timeLog.projectName : "..." }}</td>
+        <td class="border-left">{{ timeLog.startDate }}</td>
+        <td class="border-left">{{ timeLog.endDate ? timeLog.endDate : "..."}}</td>
+        <td class="border-left">{{ timeLog.duration ? (timeLog.duration < 60 ? roundUp(timeLog.duration) + "s" : (timeLog.duration > 3600 ? roundUp(timeLog.duration/3600) + "hr" : roundUp(timeLog.duration/60) + "min")) : "..." }}</td>
+        <td class="border-left">
+          <app-edit-project *ngIf="timeLog.duration" [EditProject]="EditProject" [timeLog]="timeLog"></app-edit-project>
+          <button class="btn btn-danger m-2" (click)="DeleteProject(timeLog?.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ngb-pagination class="mx-5 mx-2" [(page)]="page" [pageSize]="5" [collectionSize]="timeLogs.length"></ngb-pagination>
+</div>

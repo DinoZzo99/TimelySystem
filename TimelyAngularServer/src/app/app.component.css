@@ -1,0 +1,13 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.border-left {
+    border-left: solid 1px black;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.border-top {
+    border-top: solid 1px black;
+}

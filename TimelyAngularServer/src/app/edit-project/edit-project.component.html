@@ -1,0 +1,28 @@
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form (submit)="onSubmit(projectName.value, startDate.value, endDate.value)">
+        <div class="mb-3">
+
+          <label for="projectName">Project Name</label>
+          <input #projectName value={{timeLog.projectName}} type="text" class="form-control" placeholder="Project name..." aria-label="projectName" />
+
+          <label for="startDate">Start Date</label>
+          <input #startDate value={{timeLog.startDate}} type="text" class="form-control" placeholder="Start date..." aria-label="startDate" />
+
+          <label for="endDate">End Date</label>
+          <input #endDate value={{timeLog.endDate}} type="text" class="form-control" placeholder="End date..." aria-label="endDate" />
+
+        </div>
+        <button type="submit" class="btn btn-success" (click)="modal.close('Save click');">Save</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </ng-template>
+
+  <button class="btn btn-secondary" (click)="open(content)">Edit</button>

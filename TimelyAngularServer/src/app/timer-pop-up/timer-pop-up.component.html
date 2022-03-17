@@ -1,0 +1,21 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form (submit)="onSubmit(projectName.value)">
+      <div class="mb-3">
+        <label for="projectName">Project Name</label>
+        <input #projectName type="text" class="form-control" placeholder="Project name..." aria-label="projectName" />
+        <div class="input-group">
+        </div>
+      </div>
+          <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Save click');">Stop Timer</button>
+    </form>
+  </div>
+  <div class="modal-footer">
+  </div>
+</ng-template>
+
+<button class="btn btn-primary px-5" (click)="open(content)">Stop</button>
